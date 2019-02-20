@@ -71,3 +71,19 @@ class DecPosition(Function):
     @staticmethod
     def exec(resources: Resources) -> None:
         resources.memory.dec_position()
+
+class IncValue(Function):
+    _name = "+"
+    _args = []
+
+    @classproperty
+    def name(cls) -> str:
+        return cls._name
+
+    @classproperty
+    def args(cls) -> str:
+        return cls._args
+
+    @staticmethod
+    def exec(resources: Resources) -> None:
+        resources.memory.inc_value()
