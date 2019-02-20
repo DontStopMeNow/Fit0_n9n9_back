@@ -1,5 +1,5 @@
-from stack import Stack
-from memory import Memory
+from .stack import Stack
+from .memory import Memory
 
 
 class Resources:

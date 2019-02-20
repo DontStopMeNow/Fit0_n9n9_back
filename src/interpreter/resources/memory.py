@@ -1,4 +1,4 @@
-from exceptions import InvalidMemorySize
+from .exceptions import InvalidMemorySize
 
 from copy import deepcopy
 

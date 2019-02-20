@@ -1,4 +1,4 @@
-from exceptions import InvalidStackSize, MyStackOverflow, EmptyStack
+from .exceptions import InvalidStackSize, MyStackOverflow, EmptyStack
 
 from collections import deque
 from copy import deepcopy
