@@ -4,12 +4,12 @@ from copy import deepcopy
 
 
 class Memory:
-    _max_memory_size = 1000
+    _max_size = 1000
 
     def __init__(self, memory_size: int = 10) -> None:
-        if memory_size < 1 or memory_size > self._max_memory_size:
+        if memory_size < 1 or memory_size > self._max_size:
             raise InvalidMemorySize(
-                f"Memory size must be between 0 and {self._max_memory_size}")
+                f"Memory size must be between 0 and {self._max_size}")
         self._memory_size = memory_size
         self._memory = [0]*memory_size
         self._position = 0
