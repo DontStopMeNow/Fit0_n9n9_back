@@ -16,7 +16,7 @@ class Memory:
 
     @property
     def size(self) -> int:
-        return self.size
+        return self._size
 
     @property
     def position(self) -> int:
