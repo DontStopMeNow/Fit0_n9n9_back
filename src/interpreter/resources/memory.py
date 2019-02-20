@@ -6,17 +6,17 @@ from copy import deepcopy
 class Memory:
     _max_size = 1000
 
-    def __init__(self, memory_size: int = 10) -> None:
-        if memory_size < 1 or memory_size > self._max_size:
+    def __init__(self, size: int = 10) -> None:
+        if size < 1 or size > self._max_size:
             raise InvalidMemorySize(
                 f"Memory size must be between 0 and {self._max_size}")
-        self._memory_size = memory_size
-        self._memory = [0]*memory_size
+        self._size = size
+        self._memory = [0]*size
         self._position = 0
 
     @property
-    def memory_size(self) -> int:
-        return self.memory_size
+    def size(self) -> int:
+        return self.size
 
     @property
     def position(self) -> int:
@@ -32,13 +32,13 @@ class Memory:
 
     def inc_position(self) -> None:
         self._position += 1
-        if self.position > self._memory_size:
-            self._position %= self._memory_size
+        if self.position > self._size:
+            self._position %= self._size
 
     def dec_position(self) -> None:
         self._position -= 1
         if self._position < 0:
-            self._position %= self._memory_size
+            self._position %= self._size
 
     def inc_value(self) -> None:
         self._memory[self._position] += 1
