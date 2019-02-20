@@ -1,0 +1,2 @@
+class InvalidMemorySize(RuntimeError):
+    pass
