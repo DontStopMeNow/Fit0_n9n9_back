@@ -78,10 +78,10 @@ class Interpreter:
         else:
             raise InvalidToken(f"Invalid token \"{token}\"")
 
-    def execute(self):
+    def execute(self) -> dict:
         return self._execute_block(self._programm)
 
-    def _execute_block(self, tokens):
+    def _execute_block(self, tokens: list) -> dict:
         i = 0
         while i < len(tokens):
             token = tokens[i]
