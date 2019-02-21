@@ -30,6 +30,10 @@ class Memory:
     def value(self) -> int:
         return self._memory[self._position]
 
+    @value.setter
+    def value(self, value: int) -> None:
+        self._memory[self._position] = value
+
     def inc_position(self) -> None:
         self._position += 1
         if self.position > self._size:
