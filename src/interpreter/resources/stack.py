@@ -28,11 +28,11 @@ class Stack:
         self._stack.append(value)
 
     def pop(self) -> any:
-        if len(self._stack < 1):
+        if len(self._stack) < 1:
             raise EmptyStack("Stack is empty")
         return self._stack.pop()
 
     def peek(self) -> any:
-        if len(self._stack < 1):
+        if len(self._stack) < 1:
             raise EmptyStack("Stack is empty")
         return self._stack[-1]
