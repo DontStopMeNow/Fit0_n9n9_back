@@ -4,9 +4,9 @@ from .output import Output
 
 
 class Resources:
-    def __init__(self, stack: Stack = Stack(100),
-                 memory: Memory = Memory(100),
-                 output: Output = Output(100)) -> None:
+    def __init__(self, stack: Stack,
+                 memory: Memory,
+                 output: Output) -> None:
         self._stack = stack
         self._memory = memory
         self._output = output

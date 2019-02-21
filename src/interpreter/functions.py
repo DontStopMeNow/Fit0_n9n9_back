@@ -43,7 +43,7 @@ class FunctionsFactory:
 
 
 class IncPosition(Function):
-    _name = ">"
+    _name = "ееее"
     _args = []
 
     @classproperty
@@ -60,7 +60,7 @@ class IncPosition(Function):
 
 
 class DecPosition(Function):
-    _name = "<"
+    _name = "боой"
     _args = []
 
     @classproperty
@@ -77,7 +77,7 @@ class DecPosition(Function):
 
 
 class IncValue(Function):
-    _name = "+"
+    _name = "дя"
     _args = []
 
     @classproperty
@@ -94,7 +94,7 @@ class IncValue(Function):
 
 
 class DecValue(Function):
-    _name = "-"
+    _name = "неть"
     _args = []
 
     @classproperty
@@ -111,7 +111,7 @@ class DecValue(Function):
 
 
 class PutChar(Function):
-    _name = "."
+    _name = "пошумим_б"
     _args = []
 
     @classproperty
@@ -129,7 +129,7 @@ class PutChar(Function):
 
 
 class PutToStack(Function):
-    _name = "$"
+    _name = "го"
     _args = [int]
 
     @classproperty
@@ -146,7 +146,7 @@ class PutToStack(Function):
 
 
 class PopFromStack(Function):
-    _name = "^"
+    _name = "бухнём"
     _args = []
 
     @classproperty
