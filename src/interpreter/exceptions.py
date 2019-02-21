@@ -1,0 +1,2 @@
+class FunctionAlreadyExist(RuntimeError):
+    pass

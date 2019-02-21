@@ -1,3 +1,4 @@
+from .exceptions import FunctionAlreadyExist
 from .resources import Resources
 from utils import classproperty
 
@@ -27,6 +28,9 @@ class FunctionsFactory:
 
         functions = Function.__subclasses__()
         for function in functions:
+            if function._name in self._names_to_classes:
+                raise FunctionAlreadyExist(
+                    f"Function with name \"{function._name}\" already exist")
             self._names_to_classes[function._name] = function
 
     def __getitem__(self, key: str) -> Function:
@@ -123,3 +127,19 @@ class PutChar(Function):
         value = chr(resources.memory.value)
         resources.output.print_ch(value)
 
+
+class PutToStack(Function):
+    _name = "$"
+    _args = [int]
+
+    @classproperty
+    def name(cls) -> str:
+        return cls._name
+
+    @classproperty
+    def args(cls) -> str:
+        return cls._args
+
+    @staticmethod
+    def exec(resources: Resources, value: int) -> None:
+        resources.stack.push(value)
