@@ -10,12 +10,13 @@ class Interpreter:
     _start_token = "ну_девчата"
     _end_token = "дошумелись"
     _functions = FunctionsFactory()
-
+    _max_operations = 10000
     def __init__(self, resources: Resources) -> None:
         self._resources = resources
         self._sources = None
         self._tokens = None
         self._programm = None
+        self._operations_count = 0
 
     @property
     def resources(self) -> Resources:
@@ -79,14 +80,18 @@ class Interpreter:
             raise InvalidToken(f"Invalid token \"{token}\"")
 
     def execute(self) -> dict:
+        self._operations_count = 0
         return self._execute_block(self._programm)
 
     def _execute_block(self, tokens: list) -> dict:
         i = 0
         while i < len(tokens):
+            if self._operations_count > self._max_operations:
+                raise InvalidProgramm("Infinity loop")
             token = tokens[i]
             if isinstance(token, list):
                 while self._resources.memory.value > 0:
+                    self._operations_count += 1
                     self._execute_block(token)
             elif isinstance(token, str):
                 func = self._functions[token]
@@ -103,6 +108,7 @@ class Interpreter:
                     args.append(arg)
                 
                 func.exec(self._resources, *args)
+                self._operations_count += 1
             else:
                 raise InvalidProgramm(f"Invalid token \"{token}\"")
             i += 1
